@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIOS Y TABLAS</title>
+</head>
+<body>
+    <h1>Aprendiendo formularios y tablas</h1>
+
+    <!-- FORMULARIO PARA CREAR INPUTS Y TEXTAREA -->
+
+    <form id="formulario">
+        <label for="">Nombes :</label>
+        <input type="text" required><br />
+
+        <label for="">Apellidos :</label>
+        <input type="text" required><br />
+
+        <label for="">Edad :</label>
+        <input type="text" required><br />
+
+        <label for="">País :</label>
+        <input type="text" required><br />
+
+        <label for="">Mensaje</label><br />
+        <textarea id="mensaje" cols="30" rows="5">
+
+        </textarea><br />
+
+        <!-- <button type="submit">Enviar</button> -->
+        <input type="submit" value="Enviar">
+
+    </form><br />
+
+    <!-- FORMULARIOS DE SELECTORES Y TIPOS DE INPUTS -->
+
+    <h2>Formulario de Paises</h2>
+    <form id="formulario2">
+        <!-- SELECT QUE MUESTRE PAISES -->
+        <select name="" id="pais">
+            <option value="">Seleccionar País</option>
+            <option value="Peru">Perú</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Brasil">Brasil</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Mexico">Mexico</option>
+        </select><br /><br />
+
+        <select name="" id="genero">
+            <option value="">Seleccionar Genero</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+        </select>
+
+        <h5>Asistencia</h5>
+        
+        <div style="background-color: yellow; font-size: 10px;">
+            <label for="">Si</label>
+            <input type="checkbox">
+            <label for="">No</label>
+            <input type="checkbox">
+        </div>
+        
+
+        <div>
+            <label for="">Radios</label>
+            <input type="radio">
+        </div>
+        <div>
+            <!-- <label for="">Seleccionar Archivo</label> -->
+            <input type="file">
+        </div>
+        <div>
+            <input type="datetime-local">
+            <input type="color" name="" id="">
+            <input type="password">
+            <input type="search" placeholder="buscar">
+            <input type="email">
+        </div>
+
+    </form>
+
+</body>
+</html>
