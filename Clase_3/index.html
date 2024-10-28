@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APRENDIENDO CSS</title>
+    <link rel="stylesheet" href="flex/css/style.css">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        .contenedor{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            margin-left: 10px;
+            margin-top: 10px;
+            /* background-color: rgb(246, 248, 248); */
+            width: 200px;
+            border: 1px solid rgb(240, 235, 235);
+
+        }
+        
+        
+        div > p{
+            font-size: 15px;
+            padding: 5px 0px;
+        }
+        .agregarProducto{
+            padding: 10px 10px;
+            border: none;
+            border-radius: 5px;
+            margin: 5px 0px;
+            cursor: pointer;
+            
+        }
+
+        .agregarProducto:hover{
+            background-color: blue;
+            color: aliceblue;
+            
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="contenedor">
+        <img src="pastel_fresa.jpg" style="width: 200px;" alt="imagen">
+        <p class="precioProducto">Precio : S/50.00</p>
+        <button class="agregarProducto">Agregar</button>
+    </div>
+    <div class="contenedor">
+        <img src="pastel_chocolate.png" style="width: 200px;" alt="imagen">
+        <p class="precioProducto">Precio : S/50.00</p>
+        <button class="agregarProducto">Agregar</button>
+    </div>
+    
+</body>
+</html>
