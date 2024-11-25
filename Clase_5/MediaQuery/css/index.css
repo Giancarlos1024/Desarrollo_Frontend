@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.etiqueta1{
+    background-color: orange;
+}
+
+.navegacion{
+    background-color: orange;
+}
+.navegacion > ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+ul{
+    list-style-type: none;
+    
+}
+ul > li > a{
+    text-decoration: none;
+}
+li{
+    padding: 10px;
+    
+}
+
+
+@media screen and (max-width:480px) {
+    .etiqueta1{
+        background-color: aqua;
+        font-size: 12px;
+    }
+    ul > li > a{
+        text-decoration: none;
+        font-size: 15px;
+    }
+    .navegacion > ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    li:hover{
+        background-color: aqua;
+        width: 100%;
+        text-align: center;
+        
+    }
+    
+    
+}

@@ -1,0 +1,18 @@
+.contenedor-grid{
+    display: grid;
+    background-color: yellow;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(5,1fr);
+   
+}
+
+.contenedor-grid > div{
+    background-color: aqua;
+    padding: 5px;
+    margin: 5px;
+}
+
+.item5{
+    grid-column: 1/3;
+    
+}
