@@ -1,0 +1,14 @@
+.animal{
+    background-color: aqua;
+    padding: 5px;
+    margin: 5px;
+    width: 200px;
+    height: 200px;
+}
+
+.fondo{
+    background-color: greenyellow;
+}
+.all{
+    color: rgb(20, 55, 209);
+}
