@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Web Moderna</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: linear-gradient(to bottom, #ffffff, #f3f4f6);
+        }
+
+        header {
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+
+        .hero {
+            margin-top: 100px;
+            text-align: center;
+            padding: 50px 20px;
+            background: url('https://source.unsplash.com/1920x1080/?nature,landscape') no-repeat center center/cover;
+            color: #fff;
+            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h2 {
+            font-size: 3em;
+        }
+
+        .hero p {
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+
+        .hero button {
+            background: #f1c40f;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .hero button:hover {
+            background: #e67e22;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 50px 20px;
+            background: #f3f4f6;
+        }
+
+        .feature {
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .feature img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+        }
+
+        footer a {
+            color: #f1c40f;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Página Moderna</h1>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#caracteristicas">Características</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <div class="hero" id="inicio">
+        <h2>Bienvenido a la Página Moderna</h2>
+        <p>Diseñada con estilo y funcionalidad para adaptarse a tus necesidades.</p>
+        <button>Comenzar</button>
+    </div>
+
+    <section class="features" id="caracteristicas">
+        <div class="feature">
+            <img src="https://source.unsplash.com/100x100/?code" alt="Característica 1">
+            <h3>Diseño Elegante</h3>
+            <p>Un diseño limpio y atractivo para cautivar a los usuarios.</p>
+        </div>
+        <div class="feature">
+            <img src="https://source.unsplash.com/100x100/?responsive" alt="Característica 2">
+            <h3>100% Responsivo</h3>
+            <p>Compatible con todos los dispositivos y tamaños de pantalla.</p>
+        </div>
+        <div class="feature">
+            <img src="https://source.unsplash.com/100x100/?secure" alt="Característica 3">
+            <h3>Seguridad Avanzada</h3>
+            <p>Tu información está protegida con los más altos estándares.</p>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p>&copy; 2025 Página Moderna. Todos los derechos reservados.</p>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+    </footer>
+
+    <script>
+        document.querySelector('.hero button').addEventListener('click', () => {
+            alert('¡Gracias por comenzar!');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: blueviolet;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: rgb(10, 10, 10);
+            width: 350px;
+            height: 420px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        form > div > input, form > div > button {
+            padding: 12px;
+            width: 250px;
+            border-radius: 5px;
+            border: none;
+            margin: 5px 0;
+        }
+        form > div > button {
+            background-color: rgb(50, 238, 13);
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        form > div > button:hover {
+            background-color: rgb(10, 69, 231);
+        }
+        h1 {
+            font-size: 25px;
+            font-family: 'Segoe UI';
+            font-weight: 600;
+            color: #fff;
+        }
+        table {
+            width: 80%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            text-align: left;
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: rgb(10, 69, 231);
+            color: #fff;
+        }
+        button.edit, button.delete {
+            padding: 5px 10px;
+            border-radius: 3px;
+            border: none;
+            cursor: pointer;
+        }
+        button.edit {
+            background-color: rgb(255, 204, 0);
+            color: #fff;
+        }
+        button.delete {
+            background-color: rgb(255, 69, 58);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <form id="formulario">
+        <div>
+            <h1>GESTIONAR USUARIOS</h1>
+        </div>
+        <div>
+            <input type="text" id="id" placeholder="ID del usuario">
+        </div>
+        <div>
+            <input type="text" id="name" placeholder="Nombre del usuario">
+        </div>
+        <div>
+            <input type="password" id="password" placeholder="Contraseña del usuario">
+        </div>
+        <div>
+            <button type="submit">Añadir/Actualizar</button>
+        </div>
+    </form>
+
+    <table id="tablaUsuarios">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Contraseña</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        const formulario = document.getElementById("formulario");
+        const tablaUsuarios = document.getElementById("tablaUsuarios").querySelector("tbody");
+
+        // Cargar usuarios al iniciar
+        const cargarUsuarios = () => {
+            const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            tablaUsuarios.innerHTML = "";
+            usuarios.forEach(user => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${user.id_user}</td>
+                    <td>${user.name}</td>
+                    <td>${user.password}</td>
+                    <td>
+                        <button class="edit" onclick="editarUsuario('${user.id_user}')">Editar</button>
+                        <button class="delete" onclick="eliminarUsuario('${user.id_user}')">Eliminar</button>
+                    </td>
+                `;
+                tablaUsuarios.appendChild(row);
+            });
+        };
+
+        // Añadir o actualizar usuario
+        formulario.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const id_user = document.getElementById("id").value.trim();
+            const name = document.getElementById("name").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (!id_user || !name || !password) {
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
+
+            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            const existingIndex = usuarios.findIndex(user => user.id_user === id_user);
+
+            if (existingIndex >= 0) {
+                usuarios[existingIndex].name = name;
+                usuarios[existingIndex].password = password;
+                alert("Usuario actualizado.");
+            } else {
+                usuarios.push({ id_user, name, password });
+                alert("Usuario añadido.");
+            }
+
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+            formulario.reset();
+            cargarUsuarios();
+        });
+
+        // Editar usuario
+        const editarUsuario = (id_user) => {
+            const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            const usuario = usuarios.find(user => user.id_user === id_user);
+
+            if (usuario) {
+                document.getElementById("id").value = usuario.id_user;
+                document.getElementById("name").value = usuario.name;
+                document.getElementById("password").value = usuario.password;
+            }
+        };
+
+        // Eliminar usuario
+        const eliminarUsuario = (id_user) => {
+            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            usuarios = usuarios.filter(user => user.id_user !== id_user);
+
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+            alert("Usuario eliminado.");
+            cargarUsuarios();
+        };
+
+        // Cargar usuarios iniciales
+        cargarUsuarios();
+    </script>
+</body>
+</html>
